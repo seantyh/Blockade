@@ -1,0 +1,10 @@
+*.py[aoc]
+*~
+*.tmp
+*.swp
+
+.vscode/
+references/
+resources/
+data/*
+!data/.gitkeep
