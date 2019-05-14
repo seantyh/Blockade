@@ -30,7 +30,18 @@ class CharacterVectors:
         return self.vectors.shape
 
     def encode(self, text):
-        return [self.stoi.get(x, self.stoi["<UNK>"]) for x in text]
+        if isinstance(text, list):
+            seq = []
+            SEQLEN = max(len(x) for x in text)
+            PAD = self.stoi["<PAD>"]
+            for text_x in text:
+                seq_x = [self.stoi.get(x, self.stoi["<UNK>"]) for x in text_x]    
+                seq_x.extend([PAD] * (SEQLEN-len(text_x)))
+                seq.append(seq_x)
+            return np.vstack(seq)
+        else:
+            seq = [self.stoi.get(x, self.stoi["<UNK>"]) for x in text]
+            return np.array([seq])        
     
     def decode(self, seq):
         return [self.itos.get(x, "<UNK>") for x in seq]

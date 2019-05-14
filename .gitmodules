@@ -1,0 +1,4 @@
+[submodule "etc/pytorch-text-vae"]
+	path = etc/pytorch-text-vae
+	url = https://github.com/seantyh/pytorch-text-vae
+	branch = master
