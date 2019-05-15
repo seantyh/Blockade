@@ -1,3 +1,8 @@
+'''VAE implementation
+the code was largely based on iconix/pytorch-text-vae,
+which is an implementation of https://arxiv.org/abs/1511.06349 paper.
+'''
+
 import numpy as np
 import torch
 import torch.nn as nn
